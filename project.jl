@@ -8,6 +8,8 @@ function main()
     train_df, test_df = data_loader.data_split(df)
 
     fruit_number, centers, esigma = model.fit(train_df)
+    @printf("fruit number:\t%d\t", floor(fruit_number))
+    @printf("tree number:\t%d", size(centers)[2])
     loc_arr = [train_df.X train_df.Y]'
     train_pred_fruit = model.predict(loc_arr, fruit_number, centers, esigma)
     train_mse = model.mse(train_pred_fruit, train_df.Close)
@@ -21,8 +23,6 @@ function main()
     test_acc_soft = model.accuarcy_soft(test_pred_fruit, test_df.Close)*100
     @printf("test mse:\t%2.4f\n", test_mse)
     @printf("test soft accuarcy:\t%2.2f%%\n", test_acc_soft)
-
-
     # println(summary(df))
     # println(summary(train_df))
     # println(summary(test_df))

@@ -44,7 +44,7 @@ function K_mean(X::AbstractMatrix{<:Real},
          # println("delta: $delta")
          iter_num += 1
      end
-     println(centers)
+     # println(centers)
      return centers
 end
 
