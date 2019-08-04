@@ -20,4 +20,4 @@ function data_split(df, proportion=0.9)
     test_df = df[test_idx, :]
     return train_df, test_df
 end
-end  # module
+end  # data_loader
