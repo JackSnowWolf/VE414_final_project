@@ -1,0 +1,8 @@
+venv/
+.idea/
+proj_solver.py
+pic/*
+!pic/close.png
+!pic/far.png
+!pic/close_3D.png
+!pic/close_3D2.png
