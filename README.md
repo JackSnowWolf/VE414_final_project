@@ -23,4 +23,7 @@ and other related source files are in [src](https://github.com/JackSnowWolf/VE41
 
 ![Estimated Tayes Observation distribution](https://github.com/JackSnowWolf/VE414_final_project/blob/master/pic/simulate_distribution.jpg)
 
+## Future Work
 
+Actually, our model is not good. We still need a lot of work to do.
+Please see the __Future Work__ part in our ppt [ve414_project.pdf](https://github.com/JackSnowWolf/VE414_final_project/blob/master/ve414_project.pdf).
