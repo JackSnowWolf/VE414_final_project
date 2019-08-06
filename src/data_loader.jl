@@ -20,4 +20,8 @@ function data_split(df, proportion=0.9)
     test_df = df[test_idx, :]
     return train_df, test_df
 end
+
+function save_csv(df, file_name)
+    CSV.write(file_name, df, delim="\t")
+end
 end  # data_loader

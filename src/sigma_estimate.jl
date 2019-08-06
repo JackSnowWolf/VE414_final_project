@@ -9,11 +9,14 @@ function sigma_est(point_array::AbstractMatrix{<:Real},
     sum_x = 0
     sum_y = 0
     for i in 1:n
-        sum_x = sum_x + (point_array[i, 1]-center[1])^2*fruit_array[i]
-        sum_y = sum_y + (point_array[i, 2]-center[2])^2*fruit_array[i]
+        if ((point_array[i, 1]-center[1])^2+(point_array[i, 2]-center[2])^2) < 45
+            sum_x = sum_x + (point_array[i, 1]-center[1])^2*fruit_array[i]
+            sum_y = sum_y + (point_array[i, 2]-center[2])^2*fruit_array[i]
+        end
     end
-    esigma_x = (sum_x+1)/2
-    esigma_y = (sum_y+1)/2
+    t = sum(fruit_array)
+    esigma_x = (sum_x+1)/(t+1)
+    esigma_y = (sum_y+1)/(t+1)
     return esigma_x, esigma_y
 end
 

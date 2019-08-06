@@ -21,12 +21,12 @@ function fit(df)
     df_c = df[df.Close.>0,:]
 
     tree_number = round(Int, tree_number_estimate.number_estimate(df_c, fruit_number))
-
+    println(tree_number)
     df_k = [df_c.X df_c.Y]
 
     #df_k = DataFrames(X = df_c.X, Y = df_c.Y)
     #println(size(df_k))
-    centers = kmean.K_mean(df_k', tree_number)
+    centers = kmean.K_mean(df_k', tree_number, df_c.Close .^(1/2))
     # println("tree centers")
     # println(centers)
     clustInd = kmean.k_mean_predict(df_k', centers)
@@ -55,7 +55,7 @@ function predict(loc::AbstractMatrix{<:Real},
         distriNormal = MvNormal(center_t, esigma)
         for i in 1:n
             loc_t = loc[:, i]
-            pred_fruit_arr[i, j] = fruit_number * pdf(distriNormal, loc_t) * pi
+            pred_fruit_arr[i, j] = fruit_number * pdf(distriNormal, loc_t)
         end
     end
     pred_fruit = sum(pred_fruit_arr, dims=2)[:,1]
